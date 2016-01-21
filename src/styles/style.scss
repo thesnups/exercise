@@ -1,0 +1,197 @@
+/*
+ * Colors
+ */
+$orangeStart: #ff8400;
+$orangeMid: #f27800;
+$orangeEnd: #e46c01;
+$red: #fc3a1b;
+$blue: #04b6f0;
+$green: #10ad00;
+$yellow: #eddf02;
+$gray: #828282;
+$purple: #6809ca;
+$pink: #e1039a;
+
+/*
+ * General
+ */
+body {
+    padding-top:10px;
+}
+
+.row {
+    position:relative !important; /* Override Bootstrap row to enable z-indexing */
+}
+
+/*
+ * Box heights
+ */
+.short-box {
+    height:100px;
+    margin-bottom:10px;
+}
+
+.tall-box {
+    height:125px;
+    margin-bottom:10px;
+}
+
+/*
+ * Box z-order
+ */
+.back {
+    z-index:-1;
+}
+
+.bottom {
+    z-index:-2;
+}
+
+/*
+ * Box colors
+ */
+#orange {
+    background:$orangeMid; /* Bad browser fallback */
+    background:-webkit-linear-gradient($orangeStart, $orangeEnd);
+    background:   -moz-linear-gradient($orangeStart, $orangeEnd);
+    background:     -o-linear-gradient($orangeStart, $orangeEnd);
+    background:        linear-gradient($orangeStart, $orangeEnd);
+    border:1px solid #000000;
+}
+
+#red {
+    background:$red;
+}
+
+#blue {
+    height:115px;
+    position:relative;
+    top:10px;
+    margin-right:2px; /* Minutely widen right gutter */
+    background:$blue;
+}
+
+#black {
+    background:#000;
+}
+
+#green {
+    background:$green;
+}
+
+#yellow {
+    background:$yellow;
+    border:1px solid #000000;
+}
+
+#gray {
+    background:$gray;
+}
+
+#purple {
+    height:390px;
+    position:relative;
+    top:-380px;
+    background:$purple;
+}
+
+#pink {
+    background:$pink;
+}
+
+/*
+ * Overlay and dialog
+ */
+#overlay {
+    position:fixed;
+    top:0; left:0; bottom:0; right:0;
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+
+    -webkit-animation:fadeIn 0.5s forwards, fadeOut 0.5s forwards;
+       -moz-animation:fadeIn 0.5s forwards, fadeOut 0.5s forwards;
+         -o-animation:fadeIn 0.5s forwards, fadeOut 0.5s forwards;
+            animation:fadeIn 0.5s forwards, fadeOut 0.5s forwards;
+    -webkit-animation-delay:3s, 8s;
+       -moz-animation-delay:3s, 8s;
+         -o-animation-delay:3s, 8s;
+            animation-delay:3s, 8s;
+}
+
+#dialog {
+    width:500px;
+    padding:5px 20px;
+    background:#ffffff;
+    font-family:"Open Sans", sans-serif;
+
+    position:fixed;
+    top:37.5%;
+    left:150%;
+    -webkit-transform:translate(-50%,-50%);
+       -moz-transform:translate(-50%,-50%);
+         -o-transform:translate(-50%,-50%);
+            transform:translate(-50%,-50%);
+
+    -webkit-animation:slideIn 0.5s forwards, slideOut 0.5s forwards;
+       -moz-animation:slideIn 0.5s forwards, slideOut 0.5s forwards;
+         -o-animation:slideIn 0.5s forwards, slideOut 0.5s forwards;
+            animation:slideIn 0.5s forwards, slideOut 0.5s forwards;
+    -webkit-animation-delay:3s, 8s;
+       -moz-animation-delay:3s, 8s;
+         -o-animation-delay:3s, 8s;
+            animation-delay:3s, 8s;
+
+    h1 {
+        text-align:center;
+        font-size:25px;
+        font-weight:400;
+        white-space:nowrap;
+        margin-bottom:15px;
+    }
+
+    p {
+        font-size:14px;
+    }
+}
+@media (max-width: 520px) { /* Adjust dialog width and Y-placement for smaller devices */
+    #dialog {
+        width:90%;
+        top:50%;
+    }
+}
+
+/*
+ * Animation keyframes
+ */
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@include keyframes(fadeIn) {
+    100% { opacity:1; }
+}
+
+@include keyframes(fadeOut) {
+    0% { opacity:1; }
+    100% { opacity:0; }
+}
+
+@include keyframes(slideIn) {
+    100% { left:50%; }
+}
+
+@include keyframes(slideOut) {
+    0% { left:50%; }
+    100% { left:150%; }
+}

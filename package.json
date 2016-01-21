@@ -1,0 +1,19 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "Evaluation exercise for Dominion Enterprises.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-sass": "^2.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Worsnup",
+  "license": "ISC"
+}
